@@ -132,7 +132,7 @@ const PROFILE_IMG = process.env.PUBLIC_URL + "/profile.jpg";
 const skills = [
   { name: "SQL", color: "from-blue-500 to-cyan-400" },
   { name: "Python", color: "from-yellow-400 to-orange-500" },
-  { name: "Machine Learning", color: "from-green-400 to-teal-500" },
+  { name: "ML", color: "from-green-400 to-teal-500" },
   { name: "Tableau", color: "from-indigo-400 to-purple-500" },
   { name: "Excel", color: "from-green-300 to-lime-400" },
   { name: "SPSS", color: "from-pink-400 to-fuchsia-500" },
@@ -562,11 +562,11 @@ const Hamburger = ({ open }) => (
   </svg>
 );
 
-function OrbitingSkill({ skill, idx, total, orbitRadius = 120, animate = true }) {
+function OrbitingSkill({ skill, idx, total, orbitRadius = 120, animate = true, tick = 0 }) {
   // Her skill için eşit aralıklı açı hesapla
   const baseAngle = (360 / total) * idx;
   // Animasyonlu dönüş için açıyı güncelle
-  const animatedAngle = animate ? baseAngle + (Date.now() / 50) % 360 : baseAngle;
+  const animatedAngle = animate ? baseAngle + tick * 1 : baseAngle;
   const rad = (animatedAngle * Math.PI) / 180;
   const x = Math.cos(rad) * orbitRadius;
   const y = Math.sin(rad) * orbitRadius;
@@ -697,6 +697,7 @@ function App() {
               total={skills.length}
               orbitRadius={orbitSize}
               animate={true}
+              tick={tick}
             />
           ))}
           {/* Profil Fotoğrafı */}
