@@ -672,7 +672,12 @@ function App() {
         </button>
         {/* Mobile Nav */}
         <div className={`fixed top-0 right-0 w-5/6 max-w-xs h-screen bg-gray-900/95 shadow-2xl flex flex-col items-center justify-center gap-8 text-lg font-semibold transform ${menuOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 md:hidden`}>
-          <AnimatedStarsButton onClick={() => { setAboutMeOpen(true); setMenuOpen(false); setSelected(null); }} />
+          <button
+            onClick={() => { setAboutMeOpen(true); setMenuOpen(false); setSelected(null); }}
+            className="text-white font-medium text-xl"
+          >
+            About Me
+          </button>
           <a href="#projects" className="hover:text-blue-400 transition" onClick={() => setMenuOpen(false)}>Projects</a>
           <a href="#contact" className="hover:text-blue-400 transition" onClick={() => setMenuOpen(false)}>Contact</a>
         </div>
@@ -681,9 +686,9 @@ function App() {
       </nav>
 
       {/* HEADER "GALAXY" */}
-      <header className="relative flex flex-col items-center justify-center pt-36 md:pt-48 pb-20 md:pb-28 min-h-[60vh] md:min-h-[70vh]">
+      <header className="relative flex flex-col items-center justify-center pt-20 md:pt-32 pb-20 md:pb-28 min-h-[60vh] md:min-h-[70vh]">
         {/* Orbits */}
-        <div className="relative w-[320px] h-[400px] md:w-[440px] md:h-[550px] mb-2 md:mb-3">
+        <div className="relative w-[320px] h-[310px] md:w-[440px] md:h-[410px] mb-2 md:mb-3">
           {skills.map((skill, i) => (
             <OrbitingSkill
               key={i}
